@@ -1,0 +1,15 @@
+---
+layout: layouts/base.njk
+title: Journal
+---
+<h1>Journal</h1>
+<ul class="journal-list">
+  {%- for post in collections.journal | reverse %}
+  <li>
+    <a href="{{ post.url }}">
+      <span>{{ post.data.title }}</span>
+      <time datetime="{{ post.date | dateFormat }}">{{ post.date | dateFormat }}</time>
+    </a>
+  </li>
+  {%- endfor %}
+</ul>

@@ -1,0 +1,21 @@
+---
+layout: layouts/base.njk
+title: ""
+---
+<section class="home-intro">
+  <p>Yusuke Shono is an editor, designer, and curator based in Tokyo, working across publishing, exhibitions, and visual culture.</p>
+</section>
+
+<section>
+  <h2 class="section-heading">Selected Works</h2>
+  <ul class="work-list">
+    {%- for work in collections.works | reverse | limit(5) %}
+    <li>
+      <a href="{{ work.url }}">
+        <span>{{ work.data.title }}</span>
+        <span class="work-year">{{ work.data.year }}</span>
+      </a>
+    </li>
+    {%- endfor %}
+  </ul>
+</section>

@@ -1,0 +1,14 @@
+{
+  "name": "yusukeshono-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio site for Yusuke Shono — Editor / Designer / Curator",
+  "scripts": {
+    "start": "npx @11ty/eleventy --serve",
+    "build": "npx @11ty/eleventy"
+  },
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  }
+}

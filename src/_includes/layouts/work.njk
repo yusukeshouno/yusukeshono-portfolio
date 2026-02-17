@@ -1,0 +1,18 @@
+---
+layout: layouts/base.njk
+---
+<article class="work-detail">
+  <header class="work-header">
+    <h1>{{ title }}</h1>
+    <dl class="work-meta">
+      {% if client %}<div><dt>Client</dt><dd>{{ client }}</dd></div>{% endif %}
+      {% if role %}<div><dt>Role</dt><dd>{{ role }}</dd></div>{% endif %}
+      {% if year %}<div><dt>Year</dt><dd>{{ year }}</dd></div>{% endif %}
+      {% if category %}<div><dt>Category</dt><dd>{{ category }}</dd></div>{% endif %}
+    </dl>
+  </header>
+  {{ content | safe }}
+  <nav class="back-link">
+    <a href="/works/">&larr; All Works</a>
+  </nav>
+</article>

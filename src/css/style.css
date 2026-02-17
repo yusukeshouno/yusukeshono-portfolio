@@ -1,0 +1,233 @@
+/* === Custom Properties === */
+:root {
+  --color-text: #1a1a1a;
+  --color-text-muted: #666;
+  --color-bg: #fafaf8;
+  --color-border: #e0e0e0;
+  --color-link: #1a1a1a;
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --measure: 38rem;
+  --space-xs: 0.5rem;
+  --space-s: 1rem;
+  --space-m: 2rem;
+  --space-l: 4rem;
+  --space-xl: 6rem;
+}
+
+/* === Reset === */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* === Base === */
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text);
+  background: var(--color-bg);
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: var(--space-m);
+  padding-top: var(--space-l);
+}
+
+/* === Typography === */
+h1, h2, h3 {
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+h1 { font-size: 1.75rem; margin-bottom: var(--space-s); }
+h2 { font-size: 1.25rem; margin-bottom: var(--space-xs); }
+h3 { font-size: 1rem; margin-bottom: var(--space-xs); }
+
+p { margin-bottom: var(--space-s); }
+
+a {
+  color: var(--color-link);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* === Header === */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-s);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-name {
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.site-header nav {
+  display: flex;
+  gap: var(--space-s);
+}
+
+.site-header nav a {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.site-header nav a:hover {
+  color: var(--color-text);
+}
+
+/* === Footer === */
+.site-footer {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-s);
+  border-top: 1px solid var(--color-border);
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+/* === Main content === */
+main {
+  min-height: 60vh;
+}
+
+/* === Page === */
+.page h1 {
+  margin-bottom: var(--space-m);
+}
+
+/* === Home === */
+.home-intro {
+  margin-bottom: var(--space-xl);
+}
+
+.home-intro p {
+  font-size: 1.125rem;
+}
+
+/* === Work list === */
+.work-list {
+  list-style: none;
+}
+
+.work-list li {
+  padding: var(--space-s) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.work-list li:first-child {
+  border-top: 1px solid var(--color-border);
+}
+
+.work-list a {
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-s);
+}
+
+.work-list a:hover {
+  color: var(--color-text-muted);
+}
+
+.work-list .work-year {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+/* === Work detail === */
+.work-header {
+  margin-bottom: var(--space-m);
+}
+
+.work-meta {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-xs) var(--space-s);
+  font-size: 0.875rem;
+  margin-top: var(--space-s);
+}
+
+.work-meta div {
+  display: contents;
+}
+
+.work-meta dt {
+  color: var(--color-text-muted);
+}
+
+/* === Journal list === */
+.journal-list {
+  list-style: none;
+}
+
+.journal-list li {
+  padding: var(--space-s) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.journal-list li:first-child {
+  border-top: 1px solid var(--color-border);
+}
+
+.journal-list a {
+  text-decoration: none;
+}
+
+.journal-list a:hover {
+  color: var(--color-text-muted);
+}
+
+.journal-list time {
+  display: block;
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+/* === Post === */
+.post-header {
+  margin-bottom: var(--space-m);
+}
+
+.post-header time {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+/* === Back link === */
+.back-link {
+  margin-top: var(--space-l);
+  font-size: 0.875rem;
+}
+
+/* === Section headings on list pages === */
+.section-heading {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: var(--space-s);
+}
+
+/* === 404 === */
+.not-found {
+  text-align: center;
+  padding: var(--space-xl) 0;
+}

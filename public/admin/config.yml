@@ -1,0 +1,61 @@
+backend:
+  name: github
+  repo: yusukeshouno/yusukeshono-portfolio
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "works"
+    label: "Works"
+    folder: "src/works"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Client", name: "client", widget: "string", required: false }
+      - { label: "Role", name: "role", widget: "string" }
+      - { label: "Year", name: "year", widget: "number", value_type: "int" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - "editorial"
+          - "design"
+          - "curation"
+          - "writing"
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Order", name: "order", widget: "number", value_type: "int", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "journal"
+    label: "Journal"
+    folder: "src/journal"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "About"
+        name: "about"
+        file: "src/about.md"
+        fields:
+          - { label: "Title", name: "title", widget: "hidden", default: "About" }
+          - { label: "Layout", name: "layout", widget: "hidden", default: "layouts/page.njk" }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - label: "Contact"
+        name: "contact"
+        file: "src/contact.md"
+        fields:
+          - { label: "Title", name: "title", widget: "hidden", default: "Contact" }
+          - { label: "Layout", name: "layout", widget: "hidden", default: "layouts/page.njk" }
+          - { label: "Body", name: "body", widget: "markdown" }
