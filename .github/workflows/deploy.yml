@@ -25,6 +25,14 @@ jobs:
           chmod 600 ~/.ssh/deploy_key
           ssh-keyscan -p ${{ secrets.DEPLOY_PORT }} ${{ secrets.DEPLOY_HOST }} >> ~/.ssh/known_hosts
 
+      - name: Debug SSH
+        run: |
+          echo "Key file size: $(wc -c < ~/.ssh/deploy_key)"
+          echo "Key file lines: $(wc -l < ~/.ssh/deploy_key)"
+          head -1 ~/.ssh/deploy_key
+          tail -1 ~/.ssh/deploy_key
+          ssh -vvv -i ~/.ssh/deploy_key -p ${{ secrets.DEPLOY_PORT }} -o BatchMode=yes ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} "echo connected" 2>&1 || true
+
       - name: Deploy to VPS
         run: |
           rsync -avz --delete \
