@@ -7,16 +7,67 @@ title: ""
   <p class="ja">庄野祐輔は、東京を拠点に活動するエディター、デザイナー、キュレーター。出版、展覧会、ビジュアルカルチャーの領域で活動しています。</p>
 </section>
 
-<section>
-  <h2 class="section-heading">Selected Works <span class="ja">主な仕事</span></h2>
-  <ul class="work-list">
-    {%- for work in collections.works | reverse | limit(5) %}
+<section class="home-section">
+  <h2 class="section-heading">Works <span class="ja">仕事</span></h2>
+  <div class="table-wrap">
+    <table class="works-table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Role</th>
+          <th>Client</th>
+          <th class="col-category">Category</th>
+          <th class="col-year">Year</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%- for work in collections.works | reverse %}
+        <tr>
+          <td>
+            <a href="{{ work.url }}">{{ work.data.title }}</a>
+            {% if work.data.title_ja %}<span class="ja">{{ work.data.title_ja }}</span>{% endif %}
+          </td>
+          <td>{{ work.data.role }}</td>
+          <td>{{ work.data.client }}</td>
+          <td class="col-category">{{ work.data.category }}</td>
+          <td class="col-year">{{ work.data.year }}</td>
+        </tr>
+        {%- endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="home-section">
+  <h2 class="section-heading">About <span class="ja">プロフィール</span></h2>
+  <div class="about-grid">
+    <div>
+      <p>As the publisher of <em>MASSAGE MAGAZINE</em>, he explores the grassroots creative movements emerging from the intersection of technology and visual culture. Shono is the long-term lead editor of the annual <em>Japanese Motion Graphic Creators</em> (Eizo Sakka 100) and the editor of <em>The New Creator Economy</em> (2022). His recent curatorial projects, such as <em>Proof of X</em> and <em>Patterns of Entanglement</em>, investigate blockchain and AI as new artistic media.</p>
+    </div>
+    <div>
+      <p class="ja">1990年代よりインディペンデント・マガジンの制作に携わり、現在はオンラインメディア『MASSAGE MAGAZINE』の発行人として、インターネットが生み出す新たな文化を観測・発信。年鑑『映像作家100人』の編集長を15年以上にわたり務めるほか、書籍『THE NEW CREATOR ECONOMY』（2022年）のリードエディターを担当。近年は「Proof of X」や「もつれのパターン」などの展覧会キュレーションを通じ、ブロックチェーンやAIを新たな表現のメディウムとして捉え直す、メディア・エコロジーの探究を続けています。</p>
+    </div>
+  </div>
+</section>
+
+<section class="home-section">
+  <h2 class="section-heading">Contact <span class="ja">連絡先</span></h2>
+  <p>For inquiries, collaborations, or commissions: <strong>hello&#64;yusukeshono.com</strong></p>
+  <p class="ja">お仕事のご依頼・ご相談はメールにてお気軽にご連絡ください。</p>
+</section>
+
+{% if collections.journal and collections.journal.length %}
+<section class="home-section">
+  <h2 class="section-heading">Journal <span class="ja">ジャーナル</span></h2>
+  <ul class="journal-list">
+    {%- for post in collections.journal | reverse | limit(5) %}
     <li>
-      <a href="{{ work.url }}">
-        <span>{{ work.data.title }}</span>
-        <span class="work-year">{{ work.data.year }}</span>
+      <a href="{{ post.url }}">
+        <span>{{ post.data.title }}</span>
+        <time datetime="{{ post.date | isoDate }}">{{ post.date | dateFormat }}</time>
       </a>
     </li>
     {%- endfor %}
   </ul>
 </section>
+{% endif %}

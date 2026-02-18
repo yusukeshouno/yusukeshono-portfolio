@@ -6,7 +6,6 @@
   --color-border: #e0e0e0;
   --color-link: #1a1a1a;
   --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --measure: 38rem;
   --space-xs: 0.5rem;
   --space-s: 1rem;
   --space-m: 2rem;
@@ -31,14 +30,12 @@ html {
 
 body {
   font-family: var(--font-sans);
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 0.9375rem;
+  line-height: 1.6;
   color: var(--color-text);
   background: var(--color-bg);
-  max-width: var(--measure);
-  margin: 0 auto;
-  padding: var(--space-m);
-  padding-top: var(--space-l);
+  margin: 0;
+  padding: var(--space-m) var(--space-l);
 }
 
 /* === Typography === */
@@ -47,11 +44,11 @@ h1, h2, h3 {
   line-height: 1.2;
 }
 
-h1 { font-size: 1.75rem; margin-bottom: var(--space-s); }
-h2 { font-size: 1.25rem; margin-bottom: var(--space-xs); }
-h3 { font-size: 1rem; margin-bottom: var(--space-xs); }
+h1 { font-size: 1.5rem; margin-bottom: var(--space-s); }
+h2 { font-size: 1rem; margin-bottom: var(--space-xs); }
 
 p { margin-bottom: var(--space-s); }
+p:last-child { margin-bottom: 0; }
 
 a {
   color: var(--color-link);
@@ -74,7 +71,7 @@ a:hover {
 }
 
 .site-name {
-  font-size: 1rem;
+  font-size: 0.9375rem;
   font-weight: 500;
   text-decoration: none;
 }
@@ -85,7 +82,7 @@ a:hover {
 }
 
 .site-header nav a {
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   color: var(--color-text-muted);
   text-decoration: none;
 }
@@ -99,30 +96,147 @@ a:hover {
   margin-top: var(--space-xl);
   padding-top: var(--space-s);
   border-top: 1px solid var(--color-border);
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   color: var(--color-text-muted);
 }
 
-/* === Main content === */
+/* === Main === */
 main {
   min-height: 60vh;
 }
 
-/* === Page === */
-.page h1 {
-  margin-bottom: var(--space-m);
-}
-
-/* === Home === */
+/* === Home intro === */
 .home-intro {
+  max-width: 48rem;
   margin-bottom: var(--space-xl);
 }
 
 .home-intro p {
   font-size: 1.125rem;
+  line-height: 1.7;
 }
 
-/* === Work list === */
+/* === Home sections === */
+.home-section {
+  margin-bottom: var(--space-xl);
+}
+
+/* === Section heading === */
+.section-heading {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-m);
+  padding-bottom: var(--space-xs);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* === Works table === */
+.table-wrap {
+  overflow-x: auto;
+}
+
+.works-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.works-table th {
+  text-align: left;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: var(--space-xs) var(--space-s) var(--space-xs) 0;
+  border-bottom: 1px solid var(--color-border);
+  white-space: nowrap;
+}
+
+.works-table td {
+  padding: var(--space-s) var(--space-s) var(--space-s) 0;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+}
+
+.works-table tbody tr:hover {
+  background: rgba(0, 0, 0, 0.015);
+}
+
+.works-table td a {
+  font-weight: 500;
+}
+
+.works-table .col-year {
+  white-space: nowrap;
+  text-align: right;
+  padding-right: 0;
+}
+
+.works-table .col-category {
+  white-space: nowrap;
+}
+
+.works-table .ja {
+  display: block;
+  margin-top: 0.15em;
+}
+
+/* === About grid === */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-l);
+  max-width: 64rem;
+}
+
+/* === Bilingual === */
+.ja {
+  font-size: 0.85em;
+  color: var(--color-text-muted);
+}
+
+.home-intro .ja {
+  font-size: 0.95rem;
+}
+
+/* === Page (sub-pages) === */
+.page {
+  max-width: 38rem;
+}
+
+.page h1 {
+  margin-bottom: var(--space-m);
+}
+
+/* === Work detail === */
+.work-detail {
+  max-width: 38rem;
+}
+
+.work-header {
+  margin-bottom: var(--space-m);
+}
+
+.work-meta {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-xs) var(--space-s);
+  font-size: 0.875rem;
+  margin-top: var(--space-s);
+}
+
+.work-meta div {
+  display: contents;
+}
+
+.work-meta dt {
+  color: var(--color-text-muted);
+}
+
+/* === Work list (fallback for /works/ page) === */
 .work-list {
   list-style: none;
 }
@@ -154,27 +268,6 @@ main {
   flex-shrink: 0;
 }
 
-/* === Work detail === */
-.work-header {
-  margin-bottom: var(--space-m);
-}
-
-.work-meta {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: var(--space-xs) var(--space-s);
-  font-size: 0.875rem;
-  margin-top: var(--space-s);
-}
-
-.work-meta div {
-  display: contents;
-}
-
-.work-meta dt {
-  color: var(--color-text-muted);
-}
-
 /* === Journal list === */
 .journal-list {
   list-style: none;
@@ -199,11 +292,15 @@ main {
 
 .journal-list time {
   display: block;
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   color: var(--color-text-muted);
 }
 
 /* === Post === */
+.post {
+  max-width: 38rem;
+}
+
 .post-header {
   margin-bottom: var(--space-m);
 }
@@ -219,29 +316,42 @@ main {
   font-size: 0.875rem;
 }
 
-/* === Section headings on list pages === */
-.section-heading {
-  font-size: 1rem;
-  font-weight: 500;
-  margin-bottom: var(--space-s);
-}
-
-/* === Bilingual === */
-.ja {
-  font-size: 0.875em;
-  color: var(--color-text-muted);
-}
-
-.home-intro .ja {
-  font-size: 0.95em;
-}
-
-.bilingual-block {
-  margin-bottom: var(--space-s);
-}
-
 /* === 404 === */
 .not-found {
   text-align: center;
   padding: var(--space-xl) 0;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  body {
+    padding: var(--space-s);
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-m);
+  }
+
+  .works-table .col-category {
+    display: none;
+  }
+
+  .works-table th:nth-child(4),
+  .works-table td:nth-child(4) {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-header {
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .works-table td,
+  .works-table th {
+    padding: var(--space-xs) var(--space-xs) var(--space-xs) 0;
+    font-size: 0.8125rem;
+  }
 }
