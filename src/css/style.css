@@ -226,6 +226,20 @@ main {
   margin-bottom: var(--space-s);
 }
 
+/* === Bilingual === */
+.ja {
+  font-size: 0.875em;
+  color: var(--color-text-muted);
+}
+
+.home-intro .ja {
+  font-size: 0.95em;
+}
+
+.bilingual-block {
+  margin-bottom: var(--space-s);
+}
+
 /* === 404 === */
 .not-found {
   text-align: center;

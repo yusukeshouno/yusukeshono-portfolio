@@ -1,10 +1,12 @@
 ---
 title: "Expression's Democratization and Liquidity"
+title_ja: "表現の民主化と流動性"
 client: "JAGDA Graphic Design Review"
 role: "Author"
 year: 2023
 category: "writing"
 description: "A critical review of visual culture from the DTP revolution to the emergence of NFT ecosystems."
+description_ja: "DTP革命からNFTエコシステムの登場まで、ビジュアルカルチャーの変遷を辿る批評的考察。"
 tags: ["visual culture", "NFT", "design history"]
 order: 9
 ---

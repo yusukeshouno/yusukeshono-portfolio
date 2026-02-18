@@ -3,7 +3,7 @@ layout: layouts/base.njk
 ---
 <article class="work-detail">
   <header class="work-header">
-    <h1>{{ title }}</h1>
+    <h1>{{ title }}{% if title_ja %} <span class="ja">{{ title_ja }}</span>{% endif %}</h1>
     <dl class="work-meta">
       {% if client %}<div><dt>Client</dt><dd>{{ client }}</dd></div>{% endif %}
       {% if role %}<div><dt>Role</dt><dd>{{ role }}</dd></div>{% endif %}
@@ -12,7 +12,10 @@ layout: layouts/base.njk
     </dl>
   </header>
   {{ content | safe }}
+  {% if description_ja %}
+  <p class="ja">{{ description_ja }}</p>
+  {% endif %}
   <nav class="back-link">
-    <a href="/works/">&larr; All Works</a>
+    <a href="/works/">&larr; All Works <span class="ja">一覧に戻る</span></a>
   </nav>
 </article>
