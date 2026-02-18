@@ -24,8 +24,8 @@ title: ""
         {%- for work in collections.works | reverse %}
         <tr>
           <td>
-            <a href="{{ work.url }}">{{ work.data.title }}</a>
-            {% if work.data.title_ja %}<span class="ja">{{ work.data.title_ja }}</span>{% endif %}
+            <strong>{{ work.data.title }}</strong>
+            {% if work.data.title_ja and work.data.title_ja != work.data.title %}<span class="ja">{{ work.data.title_ja }}</span>{% endif %}
           </td>
           <td>{{ work.data.role }}</td>
           <td>{{ work.data.client }}</td>
@@ -55,19 +55,3 @@ title: ""
   <p>For inquiries, collaborations, or commissions: <strong>hello&#64;yusukeshono.com</strong></p>
   <p class="ja">お仕事のご依頼・ご相談はメールにてお気軽にご連絡ください。</p>
 </section>
-
-{% if collections.journal and collections.journal.length %}
-<section class="home-section">
-  <h2 class="section-heading">Journal <span class="ja">ジャーナル</span></h2>
-  <ul class="journal-list">
-    {%- for post in collections.journal | reverse | limit(5) %}
-    <li>
-      <a href="{{ post.url }}">
-        <span>{{ post.data.title }}</span>
-        <time datetime="{{ post.date | isoDate }}">{{ post.date | dateFormat }}</time>
-      </a>
-    </li>
-    {%- endfor %}
-  </ul>
-</section>
-{% endif %}

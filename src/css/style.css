@@ -62,9 +62,6 @@ a:hover {
 
 /* === Header === */
 .site-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
   margin-bottom: var(--space-xl);
   padding-bottom: var(--space-s);
   border-bottom: 1px solid var(--color-border);
@@ -74,21 +71,6 @@ a:hover {
   font-size: 0.9375rem;
   font-weight: 500;
   text-decoration: none;
-}
-
-.site-header nav {
-  display: flex;
-  gap: var(--space-s);
-}
-
-.site-header nav a {
-  font-size: 0.8125rem;
-  color: var(--color-text-muted);
-  text-decoration: none;
-}
-
-.site-header nav a:hover {
-  color: var(--color-text);
 }
 
 /* === Footer === */
@@ -165,10 +147,6 @@ main {
   background: rgba(0, 0, 0, 0.015);
 }
 
-.works-table td a {
-  font-weight: 500;
-}
-
 .works-table .col-year {
   white-space: nowrap;
   text-align: right;
@@ -189,7 +167,6 @@ main {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-l);
-  max-width: 64rem;
 }
 
 /* === Bilingual === */
@@ -200,120 +177,6 @@ main {
 
 .home-intro .ja {
   font-size: 0.95rem;
-}
-
-/* === Page (sub-pages) === */
-.page {
-  max-width: 38rem;
-}
-
-.page h1 {
-  margin-bottom: var(--space-m);
-}
-
-/* === Work detail === */
-.work-detail {
-  max-width: 38rem;
-}
-
-.work-header {
-  margin-bottom: var(--space-m);
-}
-
-.work-meta {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: var(--space-xs) var(--space-s);
-  font-size: 0.875rem;
-  margin-top: var(--space-s);
-}
-
-.work-meta div {
-  display: contents;
-}
-
-.work-meta dt {
-  color: var(--color-text-muted);
-}
-
-/* === Work list (fallback for /works/ page) === */
-.work-list {
-  list-style: none;
-}
-
-.work-list li {
-  padding: var(--space-s) 0;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.work-list li:first-child {
-  border-top: 1px solid var(--color-border);
-}
-
-.work-list a {
-  text-decoration: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: var(--space-s);
-}
-
-.work-list a:hover {
-  color: var(--color-text-muted);
-}
-
-.work-list .work-year {
-  font-size: 0.875rem;
-  color: var(--color-text-muted);
-  flex-shrink: 0;
-}
-
-/* === Journal list === */
-.journal-list {
-  list-style: none;
-}
-
-.journal-list li {
-  padding: var(--space-s) 0;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.journal-list li:first-child {
-  border-top: 1px solid var(--color-border);
-}
-
-.journal-list a {
-  text-decoration: none;
-}
-
-.journal-list a:hover {
-  color: var(--color-text-muted);
-}
-
-.journal-list time {
-  display: block;
-  font-size: 0.75rem;
-  color: var(--color-text-muted);
-}
-
-/* === Post === */
-.post {
-  max-width: 38rem;
-}
-
-.post-header {
-  margin-bottom: var(--space-m);
-}
-
-.post-header time {
-  font-size: 0.875rem;
-  color: var(--color-text-muted);
-}
-
-/* === Back link === */
-.back-link {
-  margin-top: var(--space-l);
-  font-size: 0.875rem;
 }
 
 /* === 404 === */
@@ -333,10 +196,7 @@ main {
     gap: var(--space-m);
   }
 
-  .works-table .col-category {
-    display: none;
-  }
-
+  .works-table .col-category,
   .works-table th:nth-child(4),
   .works-table td:nth-child(4) {
     display: none;
@@ -344,11 +204,6 @@ main {
 }
 
 @media (max-width: 480px) {
-  .site-header {
-    flex-direction: column;
-    gap: var(--space-xs);
-  }
-
   .works-table td,
   .works-table th {
     padding: var(--space-xs) var(--space-xs) var(--space-xs) 0;
