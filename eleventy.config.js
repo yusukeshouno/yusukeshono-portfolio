@@ -24,6 +24,11 @@ export default function (eleventyConfig) {
     return new Date(date).toISOString();
   });
 
+  // Sort by year descending
+  eleventyConfig.addFilter("sortByYear", (arr) => {
+    return [...arr].sort((a, b) => (b.data.year || 0) - (a.data.year || 0));
+  });
+
   // Limit filter for arrays
   eleventyConfig.addFilter("limit", (arr, count) => {
     return arr.slice(0, count);

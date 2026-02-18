@@ -21,7 +21,7 @@ title: ""
         </tr>
       </thead>
       <tbody>
-        {%- for work in collections.works | reverse %}
+        {%- for work in collections.works | sortByYear %}
         <tr>
           <td>
             <strong>{{ work.data.title }}</strong>
