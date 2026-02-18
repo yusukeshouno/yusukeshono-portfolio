@@ -35,7 +35,7 @@ body {
   color: var(--color-text);
   background: var(--color-bg);
   margin: 0;
-  padding: var(--space-m) var(--space-l);
+  padding: var(--space-m) var(--space-m);
 }
 
 /* === Typography === */
@@ -325,7 +325,7 @@ main {
 /* === Responsive === */
 @media (max-width: 768px) {
   body {
-    padding: var(--space-s);
+    padding: var(--space-s) var(--space-s);
   }
 
   .about-grid {
