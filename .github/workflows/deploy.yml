@@ -27,7 +27,7 @@ jobs:
 
       - name: Deploy to VPS
         run: |
-          rsync -avz --delete --omit-dir-times \
+          rsync -rlgDvz --delete \
             -e "ssh -i ~/.ssh/deploy_key -p ${{ secrets.DEPLOY_PORT }}" \
             _site/ \
             ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_PATH }}
