@@ -37,11 +37,6 @@ export default {
       org: { en: "Right Click Save", ja: "Right Click Save" },
       since: "2022",
     },
-    {
-      role: { en: "Player", ja: "プレイヤー" },
-      org: { en: "Civic Creative Base Tokyo (CCBT)", ja: "シビック・クリエイティブ・ベース東京（CCBT）" },
-      since: "2023",
-    },
   ],
 
   entries: [
@@ -174,17 +169,6 @@ export default {
         ja: "出展作家：加藤明洋、CryptoCitizens（Bright Moments）、CryptoPunks、int art、Kai Yoshizawa + Baku Hashimoto + MASSAGE MAGAZINE、KUMALEON、Milady Maker、Mitchell F. Chan、Nahiko、NIINOMI、PIV、Toshi（A to Z）。",
       },
       url: "https://prtimes.jp/main/html/rd/p/000000012.000041243.html",
-    },
-    {
-      id: "2023-ccbt-player",
-      year: 2023,
-      sort: "2023-10-17",
-      date: { en: "Oct 2023", ja: "2023年10月" },
-      type: "EDITORIAL",
-      title: { en: "Civic Creative Base Tokyo — Player", ja: "CCBTプレイヤー登録" },
-      role: { en: "Player", ja: "プレイヤー" },
-      venue: { en: "CCBT (Tokyo Metropolitan Foundation for History and Culture)", ja: "CCBT（東京都歴史文化財団）" },
-      url: "https://ccbt.rekibun.or.jp/players/shono-yusuke",
     },
     {
       id: "2023-on-curation-rcs",
