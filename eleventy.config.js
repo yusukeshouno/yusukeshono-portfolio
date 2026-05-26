@@ -1,5 +1,5 @@
 export default function (eleventyConfig) {
-  // Pass through CSS
+  // Pass through CSS (including et-book fonts under src/css/et-book/)
   eleventyConfig.addPassthroughCopy("src/css");
 
   // Pass through Decap CMS admin (public/admin → _site/admin)

@@ -2,156 +2,162 @@
 layout: layouts/base.njk
 title: ""
 ---
-<section class="cv-head">
-  <h1 class="cv-name">
-    <span lang="en">{{ cv.meta.name.en }}</span>
-    <span lang="ja">{{ cv.meta.name.ja }}</span>
-  </h1>
-  <p class="cv-subtitle">
-    <span lang="en">{{ cv.meta.title.en }} · {{ cv.meta.location.en }}</span>
-    <span lang="ja">{{ cv.meta.title.ja }}・{{ cv.meta.location.ja }}</span>
-  </p>
-  <p class="cv-updated"><span class="mono">Updated {{ cv.meta.updated }}</span></p>
-</section>
+<article>
+  <section class="cv-head">
+    <h1 class="cv-name">
+      <span lang="en">{{ cv.meta.name.en }}</span>
+      <span lang="ja">{{ cv.meta.name.ja }}</span>
+    </h1>
+    <p class="cv-subtitle">
+      <span lang="en"><em>{{ cv.meta.title.en }}</em> · {{ cv.meta.location.en }}</span>
+      <span lang="ja">{{ cv.meta.title.ja }}・{{ cv.meta.location.ja }}</span>
+    </p>
+    <p class="cv-updated">Updated {{ cv.meta.updated }}</p>
+  </section>
 
-<section class="cv-section">
-  <p class="cv-profile" lang="en">{{ cv.profile.en }}</p>
-  <p class="cv-profile" lang="ja">{{ cv.profile.ja }}</p>
-</section>
+  <section>
+    <p class="cv-profile" lang="en">{{ cv.profile.en }}</p>
+    <p class="cv-profile" lang="ja">{{ cv.profile.ja }}</p>
+  </section>
 
-<section class="cv-section">
-  <h2 class="cv-section-heading">
-    <span lang="en">Current Roles</span>
-    <span lang="ja">現在の役職</span>
-  </h2>
-  <dl class="role-list">
-    {%- for role in cv.roles %}
-    <div class="role-list__row">
-      <dt class="role-list__since mono">{{ role.since }}–</dt>
-      <dd class="role-list__role">
-        <span lang="en"><strong>{{ role.role.en }}</strong>, {{ role.org.en }}</span>
-        <span lang="ja"><strong>{{ role.role.ja }}</strong>　{{ role.org.ja }}</span>
-      </dd>
+  <section>
+    <h2 class="cv-section-heading">
+      <span lang="en">Current Roles</span>
+      <span lang="ja">現在の役職</span>
+    </h2>
+    <dl class="role-list">
+      {%- for role in cv.roles %}
+      <div class="role-list__row">
+        <dt class="role-list__since">{{ role.since }}–</dt>
+        <dd class="role-list__role">
+          <span lang="en"><em>{{ role.role.en }}</em>, {{ role.org.en }}</span>
+          <span lang="ja">{{ role.role.ja }}　{{ role.org.ja }}</span>
+        </dd>
+      </div>
+      {%- endfor %}
+    </dl>
+  </section>
+
+  <section data-filter data-current="ALL">
+    <h2 class="cv-section-heading">
+      <span lang="en">Selected Record</span>
+      <span lang="ja">主な実践</span>
+    </h2>
+
+    <div class="filter-bar" role="group" aria-label="Filter by type">
+      <span class="filter-bar__label">
+        <span lang="en">Filter:</span>
+        <span lang="ja">分類：</span>
+      </span>
+      <button type="button" data-filter-type="ALL" class="is-active">
+        <span lang="en">All</span><span lang="ja">すべて</span>
+      </button>
+      <button type="button" data-filter-type="EDITORIAL">
+        <span lang="en">Editorial</span><span lang="ja">編集</span>
+      </button>
+      <button type="button" data-filter-type="CURATORIAL">
+        <span lang="en">Curatorial</span><span lang="ja">キュレーション</span>
+      </button>
+      <button type="button" data-filter-type="CRITICAL">
+        <span lang="en">Critical</span><span lang="ja">批評</span>
+      </button>
     </div>
-    {%- endfor %}
-  </dl>
-</section>
-
-<section class="cv-section">
-  <h2 class="cv-section-heading">
-    <span lang="en">Selected Record</span>
-    <span lang="ja">主な実践</span>
-  </h2>
-
-  <div class="filter" data-filter data-current="ALL" role="group" aria-label="Filter by type">
-    <button type="button" data-filter-type="ALL" class="is-active">
-      <span lang="en">All</span><span lang="ja">すべて</span>
-    </button>
-    <button type="button" data-filter-type="EDITORIAL">
-      <span lang="en">Editorial</span><span lang="ja">編集</span>
-    </button>
-    <button type="button" data-filter-type="CURATORIAL">
-      <span lang="en">Curatorial</span><span lang="ja">キュレーション</span>
-    </button>
-    <button type="button" data-filter-type="CRITICAL">
-      <span lang="en">Critical</span><span lang="ja">批評</span>
-    </button>
 
     <div class="cv-record">
       {%- set years = cv.entries | uniqueYears %}
       {%- for year in years %}
       <section class="cv-year" data-year="{{ year }}">
-        <h3 class="cv-year__label mono">{% if year == 1995 %}1990s{% else %}{{ year }}{% endif %}</h3>
+        <h3 class="cv-year__label">{% if year == 1995 %}1990s{% else %}{{ year }}{% endif %}</h3>
         <ol class="cv-year__list">
           {%- for entry in cv.entries | filterByYear(year) %}
           <li class="cv-entry" data-type="{{ entry.type }}">
-            <div class="cv-entry__meta">
-              <span class="cv-entry__date mono">
+            <h4 class="cv-entry__title">
+              {%- if entry.url %}
+              <a href="{{ entry.url }}" rel="noopener">
+                <span lang="en">{{ entry.title.en }}</span>
+                <span lang="ja">{{ entry.title.ja }}</span>
+              </a>
+              {%- else %}
+              <span lang="en">{{ entry.title.en }}</span>
+              <span lang="ja">{{ entry.title.ja }}</span>
+              {%- endif %}
+            </h4>
+            <p class="cv-entry__role">
+              <span lang="en">{{ entry.role.en }}{% if entry.venue %} · {{ entry.venue.en }}{% endif %}{% if entry.collaborators %} · {{ entry.collaborators.en }}{% endif %}</span>
+              <span lang="ja">{{ entry.role.ja }}{% if entry.venue %}　{{ entry.venue.ja }}{% endif %}{% if entry.collaborators %}　{{ entry.collaborators.ja }}{% endif %}</span>
+            </p>
+            {%- if entry.note %}
+            <p class="cv-entry__note" lang="en">{{ entry.note.en }}</p>
+            <p class="cv-entry__note" lang="ja">{{ entry.note.ja }}</p>
+            {%- endif %}
+            {%- if entry.ref_url %}
+            <p class="cv-entry__ref">
+              <a href="{{ entry.ref_url }}" rel="noopener">
+                <span lang="en">{{ entry.ref_label.en or "Reference" }} →</span>
+                <span lang="ja">{{ entry.ref_label.ja or "参考" }} →</span>
+              </a>
+            </p>
+            {%- endif %}
+            <aside class="cv-entry__meta" aria-hidden="false">
+              <span class="cv-entry__date">
                 <span lang="en">{{ entry.date.en }}</span>
                 <span lang="ja">{{ entry.date.ja }}</span>
               </span>
-              <span class="cv-entry__type mono">{{ entry.type }}</span>
-            </div>
-            <div class="cv-entry__body">
-              <h4 class="cv-entry__title">
-                {%- if entry.url %}
-                <a href="{{ entry.url }}" rel="noopener">
-                  <span lang="en">{{ entry.title.en }}</span>
-                  <span lang="ja">{{ entry.title.ja }}</span>
-                </a>
-                {%- else %}
-                <span lang="en">{{ entry.title.en }}</span>
-                <span lang="ja">{{ entry.title.ja }}</span>
-                {%- endif %}
-              </h4>
-              <p class="cv-entry__role">
-                <span lang="en">{{ entry.role.en }}{% if entry.venue %} · {{ entry.venue.en }}{% endif %}{% if entry.collaborators %} · {{ entry.collaborators.en }}{% endif %}</span>
-                <span lang="ja">{{ entry.role.ja }}{% if entry.venue %}　{{ entry.venue.ja }}{% endif %}{% if entry.collaborators %}　{{ entry.collaborators.ja }}{% endif %}</span>
-              </p>
-              {%- if entry.note %}
-              <p class="cv-entry__note" lang="en">{{ entry.note.en }}</p>
-              <p class="cv-entry__note" lang="ja">{{ entry.note.ja }}</p>
-              {%- endif %}
-              {%- if entry.ref_url %}
-              <p class="cv-entry__ref">
-                <a href="{{ entry.ref_url }}" rel="noopener">
-                  <span lang="en">{{ entry.ref_label.en or "Reference" }} →</span>
-                  <span lang="ja">{{ entry.ref_label.ja or "参考" }} →</span>
-                </a>
-              </p>
-              {%- endif %}
-            </div>
+              <span class="cv-entry__type">{{ entry.type }}</span>
+            </aside>
           </li>
           {%- endfor %}
         </ol>
       </section>
       {%- endfor %}
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="cv-section">
-  <h2 class="cv-section-heading">
-    <span lang="en">Selected Writings</span>
-    <span lang="ja">主な寄稿</span>
-  </h2>
-  <ul class="writings-list">
-    {%- for w in cv.writings %}
-    <li class="writings-list__item">
-      <span class="writings-list__year mono">{{ w.year }}</span>
-      <span class="writings-list__title">
-        <span lang="en">{{ w.title.en }}</span>
-        <span lang="ja">{{ w.title.ja }}</span>
-      </span>
-      <span class="writings-list__venue"><em>{{ w.venue }}</em></span>
-      <span class="writings-list__kind">
-        <span lang="en">{{ w.kind.en }}</span>
-        <span lang="ja">{{ w.kind.ja }}</span>
-      </span>
-    </li>
-    {%- endfor %}
-  </ul>
-</section>
+  <section>
+    <h2 class="cv-section-heading">
+      <span lang="en">Selected Writings</span>
+      <span lang="ja">主な寄稿</span>
+    </h2>
+    <ul class="writings-list">
+      {%- for w in cv.writings %}
+      <li class="writings-list__item">
+        <span class="writings-list__year">{{ w.year }}</span>
+        <span>
+          <span class="writings-list__title">
+            <span lang="en">{{ w.title.en }}</span>
+            <span lang="ja">{{ w.title.ja }}</span>
+          </span>
+          <span class="writings-list__venue"><em>{{ w.venue }}</em></span>
+          <span class="writings-list__kind">
+            <span lang="en">{{ w.kind.en }}</span>
+            <span lang="ja">{{ w.kind.ja }}</span>
+          </span>
+        </span>
+      </li>
+      {%- endfor %}
+    </ul>
+  </section>
 
-<section class="cv-section">
-  <h2 class="cv-section-heading">
-    <span lang="en">Contact</span>
-    <span lang="ja">連絡先</span>
-  </h2>
-  <p>
-    <span lang="en">For inquiries and collaborations: </span>
-    <span lang="ja">お仕事のご依頼・ご相談：</span>
-    <strong><span id="email-address"></span></strong>
-  </p>
-  <script>
-    (function () {
-      var u = '{{ cv.contact.email_user }}', d = '{{ cv.contact.email_domain }}';
-      var e = u + '@' + d;
-      var slot = document.getElementById('email-address');
-      var a = document.createElement('a');
-      a.href = 'mailto:' + e;
-      a.textContent = e;
-      slot.appendChild(a);
-    })();
-  </script>
-</section>
+  <section>
+    <h2 class="cv-section-heading">
+      <span lang="en">Contact</span>
+      <span lang="ja">連絡先</span>
+    </h2>
+    <p>
+      <span lang="en">For inquiries and collaborations: </span>
+      <span lang="ja">お仕事のご依頼・ご相談：</span>
+      <span id="email-address"></span>
+    </p>
+    <script>
+      (function () {
+        var u = '{{ cv.contact.email_user }}', d = '{{ cv.contact.email_domain }}';
+        var e = u + '@' + d;
+        var slot = document.getElementById('email-address');
+        var a = document.createElement('a');
+        a.href = 'mailto:' + e;
+        a.textContent = e;
+        slot.appendChild(a);
+      })();
+    </script>
+  </section>
+</article>
