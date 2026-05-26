@@ -1,3 +1,11 @@
 <header class="site-header">
-  <a href="/" class="site-name">{{ site.title }}</a>
+  <a href="/" class="site-name">
+    <span lang="en">{{ cv.meta.name.en }}</span>
+    <span lang="ja">{{ cv.meta.name.ja }}</span>
+  </a>
+  <nav class="lang-switch" aria-label="Language">
+    <button type="button" data-lang-switch="en">EN</button>
+    <span class="lang-switch__sep" aria-hidden="true">/</span>
+    <button type="button" data-lang-switch="ja">JA</button>
+  </nav>
 </header>

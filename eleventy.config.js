@@ -29,6 +29,18 @@ export default function (eleventyConfig) {
     return [...arr].sort((a, b) => (b.data.year || 0) - (a.data.year || 0));
   });
 
+  // Unique years from CV entries, descending
+  eleventyConfig.addFilter("uniqueYears", (entries) => {
+    return [...new Set(entries.map((e) => e.year))].sort((a, b) => b - a);
+  });
+
+  // Filter CV entries by year, then sort within year by `sort` desc
+  eleventyConfig.addFilter("filterByYear", (entries, year) => {
+    return entries
+      .filter((e) => e.year === year)
+      .sort((a, b) => (a.sort < b.sort ? 1 : a.sort > b.sort ? -1 : 0));
+  });
+
   // Limit filter for arrays
   eleventyConfig.addFilter("limit", (arr, count) => {
     return arr.slice(0, count);

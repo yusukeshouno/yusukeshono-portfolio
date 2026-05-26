@@ -8,19 +8,9 @@ eleventyExcludeFromCollections: true
   <subtitle>{{ site.description }}</subtitle>
   <link href="{{ site.url }}/feed.xml" rel="self"/>
   <link href="{{ site.url }}/"/>
-  {%- set lastPost = collections.journal | last if collections.journal %}
-  {% if lastPost %}<updated>{{ lastPost.date | isoDate }}</updated>{% endif %}
+  <updated>{{ cv.meta.updated }}T00:00:00Z</updated>
   <id>{{ site.url }}/</id>
   <author>
     <name>{{ site.title }}</name>
   </author>
-  {%- for post in collections.journal | reverse | limit(20) %}
-  <entry>
-    <title>{{ post.data.title }}</title>
-    <link href="{{ site.url }}{{ post.url }}"/>
-    <updated>{{ post.date | isoDate }}</updated>
-    <id>{{ site.url }}{{ post.url }}</id>
-    <content type="html">{{ post.templateContent | safe }}</content>
-  </entry>
-  {%- endfor %}
 </feed>

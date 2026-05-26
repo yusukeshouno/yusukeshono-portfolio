@@ -2,59 +2,156 @@
 layout: layouts/base.njk
 title: ""
 ---
-<section class="home-intro">
-  <p>Yusuke Shono is an editor, designer, and curator based in Tokyo, working across publishing, exhibitions, and visual culture.</p>
-  <p class="ja">庄野祐輔は、東京を拠点に活動するエディター、デザイナー、キュレーター。出版、展覧会、ビジュアルカルチャーの領域で活動しています。</p>
+<section class="cv-head">
+  <h1 class="cv-name">
+    <span lang="en">{{ cv.meta.name.en }}</span>
+    <span lang="ja">{{ cv.meta.name.ja }}</span>
+  </h1>
+  <p class="cv-subtitle">
+    <span lang="en">{{ cv.meta.title.en }} · {{ cv.meta.location.en }}</span>
+    <span lang="ja">{{ cv.meta.title.ja }}・{{ cv.meta.location.ja }}</span>
+  </p>
+  <p class="cv-updated"><span class="mono">Updated {{ cv.meta.updated }}</span></p>
 </section>
 
-<section class="home-section">
-  <h2 class="section-heading">Works <span class="ja">仕事</span></h2>
-  <div class="table-wrap">
-    <table class="works-table">
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Role</th>
-          <th>Client</th>
-          <th class="col-category">Category</th>
-          <th class="col-year">Year</th>
-        </tr>
-      </thead>
-      <tbody>
-        {%- for work in collections.works | sortByYear %}
-        <tr>
-          <td>
-            <strong>{{ work.data.title }}</strong>
-            {% if work.data.title_ja and work.data.title_ja != work.data.title %}<span class="ja">{{ work.data.title_ja }}</span>{% endif %}
-          </td>
-          <td>{{ work.data.role }}</td>
-          <td>{{ work.data.client }}</td>
-          <td class="col-category">{{ work.data.category }}</td>
-          <td class="col-year">{{ work.data.year }}</td>
-        </tr>
-        {%- endfor %}
-      </tbody>
-    </table>
+<section class="cv-section">
+  <p class="cv-profile" lang="en">{{ cv.profile.en }}</p>
+  <p class="cv-profile" lang="ja">{{ cv.profile.ja }}</p>
+</section>
+
+<section class="cv-section">
+  <h2 class="cv-section-heading">
+    <span lang="en">Current Roles</span>
+    <span lang="ja">現在の役職</span>
+  </h2>
+  <dl class="role-list">
+    {%- for role in cv.roles %}
+    <div class="role-list__row">
+      <dt class="role-list__since mono">{{ role.since }}–</dt>
+      <dd class="role-list__role">
+        <span lang="en"><strong>{{ role.role.en }}</strong>, {{ role.org.en }}</span>
+        <span lang="ja"><strong>{{ role.role.ja }}</strong>　{{ role.org.ja }}</span>
+      </dd>
+    </div>
+    {%- endfor %}
+  </dl>
+</section>
+
+<section class="cv-section">
+  <h2 class="cv-section-heading">
+    <span lang="en">Selected Record</span>
+    <span lang="ja">主な実践</span>
+  </h2>
+
+  <div class="filter" data-filter data-current="ALL" role="group" aria-label="Filter by type">
+    <button type="button" data-filter-type="ALL" class="is-active">
+      <span lang="en">All</span><span lang="ja">すべて</span>
+    </button>
+    <button type="button" data-filter-type="EDITORIAL">
+      <span lang="en">Editorial</span><span lang="ja">編集</span>
+    </button>
+    <button type="button" data-filter-type="CURATORIAL">
+      <span lang="en">Curatorial</span><span lang="ja">キュレーション</span>
+    </button>
+    <button type="button" data-filter-type="CRITICAL">
+      <span lang="en">Critical</span><span lang="ja">批評</span>
+    </button>
+
+    <div class="cv-record">
+      {%- set years = cv.entries | uniqueYears %}
+      {%- for year in years %}
+      <section class="cv-year" data-year="{{ year }}">
+        <h3 class="cv-year__label mono">{% if year == 1995 %}1990s{% else %}{{ year }}{% endif %}</h3>
+        <ol class="cv-year__list">
+          {%- for entry in cv.entries | filterByYear(year) %}
+          <li class="cv-entry" data-type="{{ entry.type }}">
+            <div class="cv-entry__meta">
+              <span class="cv-entry__date mono">
+                <span lang="en">{{ entry.date.en }}</span>
+                <span lang="ja">{{ entry.date.ja }}</span>
+              </span>
+              <span class="cv-entry__type mono">{{ entry.type }}</span>
+            </div>
+            <div class="cv-entry__body">
+              <h4 class="cv-entry__title">
+                {%- if entry.url %}
+                <a href="{{ entry.url }}" rel="noopener">
+                  <span lang="en">{{ entry.title.en }}</span>
+                  <span lang="ja">{{ entry.title.ja }}</span>
+                </a>
+                {%- else %}
+                <span lang="en">{{ entry.title.en }}</span>
+                <span lang="ja">{{ entry.title.ja }}</span>
+                {%- endif %}
+              </h4>
+              <p class="cv-entry__role">
+                <span lang="en">{{ entry.role.en }}{% if entry.venue %} · {{ entry.venue.en }}{% endif %}{% if entry.collaborators %} · {{ entry.collaborators.en }}{% endif %}</span>
+                <span lang="ja">{{ entry.role.ja }}{% if entry.venue %}　{{ entry.venue.ja }}{% endif %}{% if entry.collaborators %}　{{ entry.collaborators.ja }}{% endif %}</span>
+              </p>
+              {%- if entry.note %}
+              <p class="cv-entry__note" lang="en">{{ entry.note.en }}</p>
+              <p class="cv-entry__note" lang="ja">{{ entry.note.ja }}</p>
+              {%- endif %}
+              {%- if entry.ref_url %}
+              <p class="cv-entry__ref">
+                <a href="{{ entry.ref_url }}" rel="noopener">
+                  <span lang="en">{{ entry.ref_label.en or "Reference" }} →</span>
+                  <span lang="ja">{{ entry.ref_label.ja or "参考" }} →</span>
+                </a>
+              </p>
+              {%- endif %}
+            </div>
+          </li>
+          {%- endfor %}
+        </ol>
+      </section>
+      {%- endfor %}
+    </div>
   </div>
 </section>
 
-<section class="home-section">
-  <h2 class="section-heading">About <span class="ja">プロフィール</span></h2>
-  <div class="about-grid">
-    <div>
-      <p>As the publisher of <em>MASSAGE MAGAZINE</em>, he explores the grassroots creative movements emerging from the intersection of technology and visual culture. Shono is the long-term lead editor of the annual <em>Japanese Motion Graphic Creators</em> (Eizo Sakka 100) and the editor of <em>The New Creator Economy</em> (2022). His recent curatorial projects, such as <em>Proof of X</em> and <em>Patterns of Entanglement</em>, investigate blockchain and AI as new artistic media.</p>
-    </div>
-    <div>
-      <p class="ja">1990年代よりインディペンデント・マガジンの制作に携わり、現在はオンラインメディア『MASSAGE MAGAZINE』の発行人として、インターネットが生み出す新たな文化を観測・発信。年鑑『映像作家100人』の編集長を15年以上にわたり務めるほか、書籍『THE NEW CREATOR ECONOMY』（2022年）のリードエディターを担当。近年は「Proof of X」や「もつれのパターン」などの展覧会キュレーションを通じ、ブロックチェーンやAIを新たな表現のメディウムとして捉え直す、メディア・エコロジーの探究を続けています。</p>
-    </div>
-  </div>
+<section class="cv-section">
+  <h2 class="cv-section-heading">
+    <span lang="en">Selected Writings</span>
+    <span lang="ja">主な寄稿</span>
+  </h2>
+  <ul class="writings-list">
+    {%- for w in cv.writings %}
+    <li class="writings-list__item">
+      <span class="writings-list__year mono">{{ w.year }}</span>
+      <span class="writings-list__title">
+        <span lang="en">{{ w.title.en }}</span>
+        <span lang="ja">{{ w.title.ja }}</span>
+      </span>
+      <span class="writings-list__venue"><em>{{ w.venue }}</em></span>
+      <span class="writings-list__kind">
+        <span lang="en">{{ w.kind.en }}</span>
+        <span lang="ja">{{ w.kind.ja }}</span>
+      </span>
+    </li>
+    {%- endfor %}
+  </ul>
 </section>
 
-<section class="home-section">
-  <h2 class="section-heading">Contact <span class="ja">連絡先</span></h2>
-  <p>For inquiries, collaborations, or commissions: <strong><span id="email-address"></span></strong></p>
+<section class="cv-section">
+  <h2 class="cv-section-heading">
+    <span lang="en">Contact</span>
+    <span lang="ja">連絡先</span>
+  </h2>
+  <p>
+    <span lang="en">For inquiries and collaborations: </span>
+    <span lang="ja">お仕事のご依頼・ご相談：</span>
+    <strong><span id="email-address"></span></strong>
+  </p>
   <script>
-    (function(){var u='info',d='yusukeshono.com',e=u+'@'+d,s=document.getElementById('email-address');var a=document.createElement('a');a.href='mailto:'+e;a.textContent=e;s.appendChild(a);})();
+    (function () {
+      var u = '{{ cv.contact.email_user }}', d = '{{ cv.contact.email_domain }}';
+      var e = u + '@' + d;
+      var slot = document.getElementById('email-address');
+      var a = document.createElement('a');
+      a.href = 'mailto:' + e;
+      a.textContent = e;
+      slot.appendChild(a);
+    })();
   </script>
-  <p class="ja">お仕事のご依頼・ご相談はメールにてお気軽にご連絡ください。</p>
 </section>

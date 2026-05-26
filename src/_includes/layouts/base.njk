@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ site.language }}">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,6 +11,15 @@
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="/feed.xml">
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('lang');
+        var lang = stored || (navigator.language && navigator.language.toLowerCase().startsWith('ja') ? 'ja' : 'en');
+        document.documentElement.lang = lang;
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
   {% include "partials/header.njk" %}
@@ -18,5 +27,38 @@
     {{ content | safe }}
   </main>
   {% include "partials/footer.njk" %}
+  <script>
+    (function () {
+      var html = document.documentElement;
+      document.querySelectorAll('[data-lang-switch]').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          var target = btn.getAttribute('data-lang-switch');
+          html.lang = target;
+          try { localStorage.setItem('lang', target); } catch (e) {}
+          document.querySelectorAll('[data-lang-switch]').forEach(function (b) {
+            b.classList.toggle('is-active', b.getAttribute('data-lang-switch') === target);
+          });
+        });
+        if (btn.getAttribute('data-lang-switch') === html.lang) {
+          btn.classList.add('is-active');
+        }
+      });
+
+      var filterContainer = document.querySelector('[data-filter]');
+      if (filterContainer) {
+        filterContainer.addEventListener('click', function (e) {
+          var btn = e.target.closest('[data-filter-type]');
+          if (!btn) return;
+          e.preventDefault();
+          var type = btn.getAttribute('data-filter-type');
+          filterContainer.setAttribute('data-current', type);
+          filterContainer.querySelectorAll('[data-filter-type]').forEach(function (b) {
+            b.classList.toggle('is-active', b.getAttribute('data-filter-type') === type);
+          });
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
