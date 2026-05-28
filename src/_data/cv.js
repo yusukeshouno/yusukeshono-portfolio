@@ -7,8 +7,8 @@ export default {
   },
 
   profile: {
-    en: "Yusuke Shono is an editor and curator based in Tokyo, working across publishing, exhibitions, and criticism. Through MASSAGE MAGAZINE and curatorial work at NEORT++, he builds discourse around digital, generative, and media art, connecting Japan's digital art scene to international critical networks via the Proof of X series and ongoing collaborations with Right Click Save.",
-    ja: "庄野祐輔は、編集者・キュレーターとして、出版・展覧会・批評の三つの実践を横断する。雑誌『MASSAGE MAGAZINE』を母体に、デジタル／ジェネラティブ／メディアアートを中心とした言説と展示の場を東京に構築し、近年はブロックチェーン、AI、メディア・エコロジーをめぐる国際的なキュレーションを展開。NEORT++（東京・馬喰町）の主要展や「Proof of X」シリーズを通じて、日本のデジタルアートシーンと海外の批評ネットワークを接続する。",
+    en: "Yusuke Shono is an editor and curator working across two practices — publishing and exhibitions. With MASSAGE MAGAZINE as his base, he has built a space of discourse and display centered on digital, generative, and computer art. His recent curatorial projects investigate contemporary technologies such as blockchain and AI, and through major exhibitions at NEORT++ (Bakurochō, Tokyo) he is building networks across digital art communities at home and abroad.",
+    ja: "編集者・キュレーターとして、出版・展覧会の二つの実践を横断する。雑誌『MASSAGE MAGAZINE』を母体に、デジタル／ジェネラティブ／コンピューターアートを中心とした言説と展示の場を構築。近年はブロックチェーンやAIなど現代のテクノロジーについて探求するキュレーションを展開し、NEORT++（東京・馬喰町）での主要展示を通じて、国内外のデジタルアートのネットワークを構築している。",
   },
 
   roles: [
