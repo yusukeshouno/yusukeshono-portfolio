@@ -100,20 +100,6 @@ export default {
       },
     },
     {
-      id: "2024-10-foot-foot",
-      year: 2024,
-      sort: "2024-10-01",
-      date: { en: "Oct 2024", ja: "2024年10月" },
-      type: "CURATORIAL",
-      title: { en: "Foot Foot", ja: "Foot Foot" },
-      role: { en: "Curation", ja: "キュレーション" },
-      venue: { en: "NEORT++, Tokyo (DESIGNART TOKYO 2024)", ja: "NEORT++（東京、DESIGNART TOKYO 2024提携）" },
-      note: {
-        en: "Focused on the work of Kazuhiro Aihara.",
-        ja: "相原一弘の作品にフォーカス。",
-      },
-    },
-    {
       id: "2024-10-patterns-of-flow",
       year: 2024,
       sort: "2024-09-15",
