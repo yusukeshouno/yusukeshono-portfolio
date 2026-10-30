@@ -1,0 +1,120 @@
+---
+pagination:
+  data: langs
+  size: 1
+  alias: lang
+langs: ["en", "ja"]
+permalink: "cv/print-{{ lang }}/index.html"
+eleventyExcludeFromCollections: true
+---
+{%- set L = lang -%}
+{%- set typeJa = { EDITORIAL: "編集", CURATORIAL: "キュレーション", CRITICAL: "批評" } -%}
+<!DOCTYPE html>
+<html lang="{{ L }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex">
+  <title>{{ cv.meta.name[L] }} — CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&display=swap">
+  <link rel="stylesheet" href="/css/cv-print.css">
+</head>
+<body>
+  <header class="p-head">
+    <h1 class="p-name">{{ cv.meta.name[L] }}</h1>
+    <p class="p-sub">
+      {%- if L == "en" %}<em>{{ cv.meta.title.en }}</em> · {{ cv.meta.location.en }}{% else %}{{ cv.meta.title.ja }}・{{ cv.meta.location.ja }}{% endif -%}
+    </p>
+    <p class="p-contact">
+      <a href="{{ site.url }}">{{ site.url | replace("https://", "") }}</a>
+      <span class="p-sep">·</span>
+      <span id="email-address"></span>
+    </p>
+    <p class="p-updated">{% if L == "en" %}Updated{% else %}最終更新{% endif %} {{ cv.meta.updated }}</p>
+  </header>
+
+  <section class="p-section">
+    <h2 class="p-h2">{% if L == "en" %}Profile{% else %}プロフィール{% endif %}</h2>
+    <p class="p-profile">{{ cv.profile[L] }}</p>
+  </section>
+
+  <section class="p-section">
+    <h2 class="p-h2">{% if L == "en" %}Current Roles{% else %}現在の役職{% endif %}</h2>
+    <ul class="p-rows">
+      {%- for role in cv.roles %}
+      <li class="p-row">
+        <span class="p-when">{{ role.since }}–</span>
+        <span class="p-what">
+          {%- if L == "en" %}<em>{{ role.role.en }}</em>, {{ role.org.en }}{% else %}{{ role.role.ja }}　{{ role.org.ja }}{% endif -%}
+        </span>
+      </li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section class="p-section">
+    <h2 class="p-h2">{% if L == "en" %}Juries &amp; Advisory{% else %}審査・アドバイザー{% endif %}</h2>
+    <ul class="p-rows">
+      {%- for j in cv.juries %}
+      <li class="p-row">
+        <span class="p-when">{{ j.year }}</span>
+        <span class="p-what">
+          <span class="p-title">{% if j.url %}<a href="{{ j.url }}">{{ j.title[L] }}</a>{% else %}{{ j.title[L] }}{% endif %}</span>
+          <span class="p-meta">{{ j.kind[L] }} · {{ j.org[L] }}</span>
+        </span>
+      </li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section class="p-section">
+    <h2 class="p-h2">{% if L == "en" %}Selected Record{% else %}主な実践{% endif %}</h2>
+    {%- set years = cv.entries | uniqueYears %}
+    {%- for year in years %}
+    <div class="p-year">
+      <h3 class="p-h3">{% if year == 1995 %}1990s{% else %}{{ year }}{% endif %}</h3>
+      <ul class="p-rows">
+        {%- for entry in cv.entries | filterByYear(year) %}
+        <li class="p-row">
+          <span class="p-when">{{ entry.date[L] }}<span class="p-type">{{ typeJa[entry.type] if L == "ja" else entry.type }}</span></span>
+          <span class="p-what">
+            <span class="p-title">{% if entry.url %}<a href="{{ entry.url }}">{{ entry.title[L] }}</a>{% else %}{{ entry.title[L] }}{% endif %}</span>
+            <span class="p-meta">{{ entry.role[L] }}{% if entry.venue %} · {{ entry.venue[L] }}{% endif %}{% if entry.collaborators %} · {{ entry.collaborators[L] }}{% endif %}</span>
+            {%- if entry.note %}
+            <span class="p-note">{{ entry.note[L] }}</span>
+            {%- endif %}
+          </span>
+        </li>
+        {%- endfor %}
+      </ul>
+    </div>
+    {%- endfor %}
+  </section>
+
+  <section class="p-section">
+    <h2 class="p-h2">{% if L == "en" %}Selected Writings{% else %}主な寄稿{% endif %}</h2>
+    <ul class="p-rows">
+      {%- for w in cv.writings %}
+      <li class="p-row">
+        <span class="p-when">{{ w.year }}</span>
+        <span class="p-what">
+          <span class="p-title">{{ w.title[L] }}</span>
+          <span class="p-meta"><em>{{ w.venue }}</em> · {{ w.kind[L] }}</span>
+        </span>
+      </li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <script>
+    (function () {
+      var e = '{{ cv.contact.email_user }}' + '@' + '{{ cv.contact.email_domain }}';
+      var a = document.createElement('a');
+      a.href = 'mailto:' + e;
+      a.textContent = e;
+      document.getElementById('email-address').appendChild(a);
+    })();
+  </script>
+</body>
+</html>

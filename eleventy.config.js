@@ -5,6 +5,9 @@ export default function (eleventyConfig) {
   // Pass through Decap CMS admin (public/admin → _site/admin)
   eleventyConfig.addPassthroughCopy({ "public/admin": "admin" });
 
+  // Pass through generated CV PDFs (public/cv → _site/cv)
+  eleventyConfig.addPassthroughCopy({ "public/cv": "cv" });
+
   // Date formatting filter
   eleventyConfig.addFilter("dateFormat", (date) => {
     return new Date(date).toLocaleDateString("en-US", {

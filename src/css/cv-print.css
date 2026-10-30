@@ -1,0 +1,141 @@
+/*
+ * Print CV (A4) — rendered to PDF by scripts/build-cv-pdf.mjs
+ * Same Tufte-derived language as the site, tightened for paper.
+ */
+
+@font-face {
+  font-family: "et-book";
+  src: url("/css/et-book/et-book-roman-line-figures/et-book-roman-line-figures.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "et-book";
+  src: url("/css/et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: "et-book";
+  src: url("/css/et-book/et-book-bold-line-figures/et-book-bold-line-figures.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@page {
+  size: A4;
+  margin: 18mm 20mm 18mm 20mm;
+}
+
+:root {
+  --ink: #111;
+  --meta: #777;
+  --rule: #d8d6cc;
+  --when: 30mm;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  font-family: "et-book", Palatino, Georgia, serif;
+  font-size: 10pt;
+  line-height: 1.45;
+  color: var(--ink);
+  background: #fff;
+  -webkit-print-color-adjust: exact;
+}
+html[lang="ja"] {
+  font-family: "et-book", "Noto Serif JP", serif;
+  font-size: 9pt;
+  line-height: 1.7;
+}
+
+a { color: inherit; text-decoration: none; }
+em { font-style: italic; }
+html[lang="ja"] em { font-style: normal; }
+ul { list-style: none; }
+
+/* Head */
+.p-head {
+  padding-bottom: 5mm;
+  margin-bottom: 6mm;
+  border-bottom: 0.5pt solid var(--rule);
+}
+.p-name {
+  font-weight: 400;
+  font-size: 26pt;
+  line-height: 1.1;
+  margin-bottom: 1.5mm;
+}
+html[lang="ja"] .p-name { font-size: 22pt; font-weight: 600; letter-spacing: 0.04em; }
+.p-sub { font-size: 12pt; }
+html[lang="ja"] .p-sub { font-size: 10.5pt; }
+.p-contact { margin-top: 2mm; font-size: 9.5pt; color: var(--meta); }
+.p-sep { margin: 0 0.4em; }
+.p-updated {
+  margin-top: 1mm;
+  font-family: Consolas, "Liberation Mono", monospace;
+  font-size: 7pt;
+  color: var(--meta);
+}
+
+/* Sections */
+.p-section { margin-bottom: 6mm; }
+.p-h2 {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 14pt;
+  line-height: 1.2;
+  margin-bottom: 2.5mm;
+  break-after: avoid;
+}
+html[lang="ja"] .p-h2 { font-style: normal; font-weight: 600; font-size: 11.5pt; }
+.p-h3 {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 11.5pt;
+  margin: 3mm 0 1mm;
+  break-after: avoid;
+}
+html[lang="ja"] .p-h3 { font-style: normal; font-weight: 600; font-size: 10pt; }
+
+.p-profile { max-width: 150mm; }
+
+/* Rows: date column + content */
+.p-row {
+  display: grid;
+  grid-template-columns: var(--when) 1fr;
+  column-gap: 4mm;
+  padding: 1.2mm 0;
+  border-bottom: 0.5pt dotted var(--rule);
+  break-inside: avoid;
+}
+.p-row:last-child { border-bottom: 0; }
+.p-when {
+  font-family: Consolas, "Liberation Mono", monospace;
+  font-size: 7.5pt;
+  color: var(--meta);
+  padding-top: 0.6mm;
+}
+.p-type {
+  display: block;
+  font-size: 6.5pt;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+}
+.p-title { display: block; }
+.p-title a { border-bottom: 0.4pt solid currentColor; }
+.p-meta {
+  display: block;
+  font-style: italic;
+  font-size: 9pt;
+  color: var(--meta);
+}
+html[lang="ja"] .p-meta { font-style: normal; font-size: 8pt; }
+.p-note { display: block; font-size: 9pt; margin-top: 0.5mm; }
+html[lang="ja"] .p-note { font-size: 8pt; }
+
+/* On-screen preview */
+@media screen {
+  body { max-width: 210mm; margin: 0 auto; padding: 18mm 20mm; }
+}
