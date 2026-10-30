@@ -571,3 +571,7 @@ html[lang="ja"] .writings-list__kind { font-style: normal; }
     margin-left: 0.6rem;
   }
 }
+
+/* Jury and advisory entries share one portfolio filter. */
+[data-filter][data-current="JURY_ADVISORY"] .cv-entry:not([data-type="JURY"]):not([data-type="ADVISORY"]) { display: none; }
+[data-filter][data-current="JURY_ADVISORY"] .cv-year:not(:has([data-type="JURY"], [data-type="ADVISORY"])) { display: none; }

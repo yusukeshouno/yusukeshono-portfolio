@@ -3,12 +3,12 @@ export default {
     name: { en: "Yusuke Shono", ja: "庄野祐輔" },
     title: { en: "Editor & Curator", ja: "編集者・キュレーター" },
     location: { en: "Tokyo", ja: "東京" },
-    updated: "2026-05-26",
+    updated: "2026-10-30",
   },
 
   profile: {
-    en: "Yusuke Shono is an editor and curator working across two practices — publishing and exhibitions. With MASSAGE MAGAZINE as his base, he has built a space of discourse and display centered on digital, generative, and computer art. His recent curatorial projects investigate contemporary technologies such as blockchain and AI, and through major exhibitions at NEORT++ (Bakurochō, Tokyo) he is building networks across digital art communities at home and abroad.",
-    ja: "編集者・キュレーターとして、出版・展覧会の二つの実践を横断する。雑誌『MASSAGE MAGAZINE』を母体に、デジタル／ジェネラティブ／コンピューターアートを中心とした言説と展示の場を構築。近年はブロックチェーンやAIなど現代のテクノロジーについて探求するキュレーションを展開し、NEORT++（東京・馬喰町）での主要展示を通じて、国内外のデジタルアートのネットワークを構築している。",
+    en: "Yusuke Shono is an editor and curator working across two practices — publishing and exhibitions. With MASSAGE MAGAZINE as his base, he has built a space of discourse and display centered on digital, generative, and computer art. His recent curatorial projects investigate contemporary technologies such as blockchain and AI, and through major exhibitions at NEORT++ (Bakurochō, Tokyo) he is building networks across digital art communities at home and abroad. He has served on The Lumen Prize’s International Selectors Committee and as an advisor to the Agency for Cultural Affairs’ media arts creator development program.",
+    ja: "編集者・キュレーターとして、出版・展覧会の二つの実践を横断する。雑誌『MASSAGE MAGAZINE』を母体に、デジタル／ジェネラティブ／コンピューターアートを中心とした言説と展示の場を構築。近年はブロックチェーンやAIなど現代のテクノロジーについて探求するキュレーションを展開し、NEORT++（東京・馬喰町）での主要展示を通じて、国内外のデジタルアートのネットワークを構築している。2025年・2026年にはThe Lumen Prizeの国際選考委員を務め、文化庁メディア芸術クリエイター育成支援事業でもアドバイザーを担当。",
   },
 
   roles: [
@@ -40,6 +40,57 @@ export default {
   ],
 
   entries: [
+    {
+      id: "2026-lumen-prize-isc",
+      year: 2026,
+      sort: "2026-06-01",
+      date: { en: "2026", ja: "2026年" },
+      type: "JURY",
+      title: { en: "The Lumen Prize 2026", ja: "The Lumen Prize 2026" },
+      role: { en: "International Selectors Committee", ja: "国際選考委員" },
+      venue: { en: "The Lumen Prize", ja: "The Lumen Prize" },
+      note: {
+        en: "Member of the International Selectors Committee, which reviews submissions and selects the finalists for the Jury Panel.",
+        ja: "応募作品を評価し、最終審査に進むファイナリストを選出する国際選考委員会に参加。",
+      },
+      url: "https://lumenprize.org/2026-isc",
+      ref_url: "https://www.linkedin.com/posts/esra-%C3%B6zkan-8095023b_thrilled-to-be-announced-as-a-member-of-the-activity-7448343545205211137-D94f",
+      ref_label: { en: "2026 committee announcement", ja: "2026年委員発表" },
+    },
+    {
+      id: "2026-agency-for-cultural-affairs-advisor",
+      year: 2026,
+      sort: "2026-05-01",
+      date: { en: "2025–2026", ja: "2025〜2026年" },
+      type: "ADVISORY",
+      title: { en: "Project to Support Emerging Media Arts Creators", ja: "文化庁メディア芸術クリエイター育成支援事業" },
+      role: { en: "Advisor, Domestic Creative Support Program", ja: "国内クリエイター創作支援プログラム・アドバイザー" },
+      venue: { en: "Agency for Cultural Affairs, Japan", ja: "文化庁" },
+      note: {
+        en: "Advisor to the domestic creative support program in both the 2025 and 2026 editions, supporting emerging media arts creators.",
+        ja: "2025年度・2026年度の国内クリエイター創作支援プログラムで、メディア芸術分野のクリエイターを支援するアドバイザーを担当。",
+      },
+      url: "https://creators.j-mediaarts.bunka.go.jp/2026-entry",
+      ref_url: "https://creators.j-mediaarts.bunka.go.jp/advisors/17898",
+      ref_label: { en: "2025 advisor profile", ja: "2025年度アドバイザー紹介" },
+    },
+    {
+      id: "2025-lumen-prize-isc",
+      year: 2025,
+      sort: "2025-04-01",
+      date: { en: "2025", ja: "2025年" },
+      type: "JURY",
+      title: { en: "The Lumen Prize 2025", ja: "The Lumen Prize 2025" },
+      role: { en: "International Selectors Committee (Experiential Award)", ja: "国際選考委員（Experiential Award部門）" },
+      venue: { en: "The Lumen Prize", ja: "The Lumen Prize" },
+      note: {
+        en: "Served on the international selection committee for the Experiential Award category, reviewing works exploring immersive and interactive experience.",
+        ja: "没入型・インタラクティブな体験を扱うExperiential Award部門の国際選考委員として作品選考に参加。",
+      },
+      url: "https://www.linkedin.com/posts/the-lumen-prize_csrc-rca-rca-activity-7316505319637987328-5PnT",
+      ref_url: "https://www.linkedin.com/posts/noriaki-nakata-821362112_congrats-to-yusuke-to-join-as-a-selector-activity-7303910056004071424-7WsD",
+      ref_label: { en: "2025 ISC announcement", ja: "2025年委員発表" },
+    },
     {
       id: "2025-12-patterns-of-entanglement",
       year: 2025,
