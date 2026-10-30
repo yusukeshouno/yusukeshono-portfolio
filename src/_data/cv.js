@@ -13,19 +13,14 @@ export default {
 
   roles: [
     {
-      role: { en: "Publisher / Editor-in-Chief", ja: "発行人・編集長" },
-      org: { en: "MASSAGE MAGAZINE", ja: "MASSAGE MAGAZINE" },
-      since: "2004",
-    },
-    {
-      role: { en: "Editor-in-Chief", ja: "編集長" },
-      org: { en: "100 Japanese Motion Graphic Creators (BNN)", ja: "映像作家100人（BNN）" },
-      since: "2005",
-    },
-    {
-      role: { en: "Curator (continuing partner)", ja: "継続パートナー・キュレーター" },
+      role: { en: "Main Curator", ja: "メインキュレーター" },
       org: { en: "NEORT++, Tokyo", ja: "NEORT++（東京）" },
-      since: "2022",
+      since: "2026",
+    },
+    {
+      role: { en: "Editor", ja: "編集者" },
+      org: { en: "Civic Creative Base Tokyo (CCBT), Tokyo Metropolitan Foundation for History and Culture", ja: "シビック・クリエイティブ・ベース東京（CCBT）／東京都歴史文化財団" },
+      since: "2024",
     },
     {
       role: { en: "Committee Member / Curator", ja: "実行委員・キュレーター" },
@@ -38,9 +33,14 @@ export default {
       since: "2022",
     },
     {
-      role: { en: "Editor", ja: "編集者" },
-      org: { en: "Civic Creative Base Tokyo (CCBT), Tokyo Metropolitan Foundation for History and Culture", ja: "シビック・クリエイティブ・ベース東京（CCBT）／東京都歴史文化財団" },
-      since: "2024",
+      role: { en: "Editor-in-Chief", ja: "編集長" },
+      org: { en: "100 Japanese Motion Graphic Creators (BNN)", ja: "映像作家100人（BNN）" },
+      since: "2005",
+    },
+    {
+      role: { en: "Publisher / Editor-in-Chief", ja: "発行人・編集長" },
+      org: { en: "MASSAGE MAGAZINE", ja: "MASSAGE MAGAZINE" },
+      since: "2004",
     },
   ],
 
