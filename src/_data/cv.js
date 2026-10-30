@@ -18,11 +18,6 @@ export default {
       since: "2026",
     },
     {
-      role: { en: "Editor", ja: "編集者" },
-      org: { en: "Civic Creative Base Tokyo (CCBT), Tokyo Metropolitan Foundation for History and Culture", ja: "シビック・クリエイティブ・ベース東京（CCBT）／東京都歴史文化財団" },
-      since: "2024",
-    },
-    {
       role: { en: "Committee Member / Curator", ja: "実行委員・キュレーター" },
       org: { en: "Proof of X", ja: "Proof of X" },
       since: "2022",
