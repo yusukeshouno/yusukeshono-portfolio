@@ -37,9 +37,59 @@ export default {
       org: { en: "Right Click Save", ja: "Right Click Save" },
       since: "2022",
     },
+    {
+      role: { en: "Editor", ja: "編集者" },
+      org: { en: "Civic Creative Base Tokyo (CCBT), Tokyo Metropolitan Foundation for History and Culture", ja: "シビック・クリエイティブ・ベース東京（CCBT）／東京都歴史文化財団" },
+      since: "2024",
+    },
   ],
 
   entries: [
+    {
+      id: "2025-12-ccbt-annual-2024",
+      year: 2025,
+      sort: "2025-12-12",
+      date: { en: "Dec 2025", ja: "2025年12月" },
+      type: "EDITORIAL",
+      title: { en: "CCBT Annual 2024", ja: "CCBTアニュアル 2024" },
+      role: { en: "Editor (with Ayumi Yagi)", ja: "編集（八木あゆみと共同）" },
+      venue: { en: "CCBT, Tokyo Metropolitan Foundation for History and Culture", ja: "CCBT（東京都歴史文化財団）" },
+      note: {
+        en: "Annual report on CCBT's FY2024 programs.",
+        ja: "CCBTの2024年度の活動をまとめたアニュアル・レポート。",
+      },
+      url: "https://ccbt.rekibun.or.jp/report/CCBT_Annual2024.pdf",
+    },
+    {
+      id: "2025-03-ccbt-annual-2022-2023",
+      year: 2025,
+      sort: "2025-03-20",
+      date: { en: "Mar 2025", ja: "2025年3月" },
+      type: "EDITORIAL",
+      title: { en: "CCBT Annual 2022–2023", ja: "CCBTアニュアル 2022–2023" },
+      role: { en: "Editor (with Ayumi Yagi)", ja: "編集（八木あゆみと共同）" },
+      venue: { en: "CCBT, Tokyo Metropolitan Foundation for History and Culture", ja: "CCBT（東京都歴史文化財団）" },
+      note: {
+        en: "Covers the 18 months from CCBT's opening in October 2022 to March 2024, with 32 projects and events and interviews with artists and participants.",
+        ja: "2022年10月の開館から2024年3月までの約18か月を収録。32のプロジェクト・イベントと、アーティストや参加者へのインタビューを掲載。",
+      },
+      url: "https://ccbt.rekibun.or.jp/report/CCBT_Annual2022-2023.pdf",
+    },
+    {
+      id: "2024-ccbt-note",
+      year: 2024,
+      sort: "2024-06-01",
+      date: { en: "2024", ja: "2024年" },
+      type: "CRITICAL",
+      title: { en: "Questions for Art & Technology #1: Living as Human", ja: "みんなのノート｜「アート＆テクノロジーへの問い」第1回「人間として生きる」" },
+      role: { en: "Author", ja: "執筆" },
+      venue: { en: "CCBT, Tokyo Metropolitan Foundation for History and Culture", ja: "CCBT（東京都歴史文化財団）" },
+      note: {
+        en: "Notes on a lecture series with media art pioneer Masaki Fujihata.",
+        ja: "メディアアートのパイオニア・藤幡正樹によるレクチャーシリーズのノート。",
+      },
+      url: "https://ccbt.rekibun.or.jp/what-we-do/artandtechnology01",
+    },
     {
       id: "2025-12-patterns-of-entanglement",
       year: 2025,
@@ -377,6 +427,12 @@ export default {
       title: { en: "Computational Poetry (review)", ja: "Computational Poetry（レビュー）" },
       venue: "MASSAGE MAGAZINE (EN)",
       kind: { en: "Editor / Author", ja: "編集・執筆" },
+    },
+    {
+      year: 2024,
+      title: { en: "Questions for Art & Technology #1: Living as Human", ja: "「アート＆テクノロジーへの問い」第1回「人間として生きる」" },
+      venue: "CCBT",
+      kind: { en: "Author (notes)", ja: "執筆（みんなのノート）" },
     },
     {
       year: 2023,
