@@ -464,11 +464,11 @@ export default {
       url: "https://creators.j-mediaarts.bunka.go.jp/news/19914",
     },
     {
-      year: 2026,
-      title: { en: "CREATOR GRANT", ja: "CREATOR GRANT" },
-      org: { en: "100 Japanese Motion Graphic Creators (BNN)", ja: "映像作家100人（BNN）" },
-      kind: { en: "Juror (with NIINOMI and Daisuke Tanaka)", ja: "審査員（NIINOMI、田中大裕と共に）" },
-      url: "https://eizo100.jp/en/creator-grant-result",
+      year: 2025,
+      title: { en: "The Lumen Prize 2025", ja: "The Lumen Prize 2025" },
+      org: { en: "The Lumen Prize (London)", ja: "The Lumen Prize（ロンドン）" },
+      kind: { en: "International Selectors Committee", ja: "国際選考委員" },
+      url: "https://x.com/lumenprize/status/1897293522828685769",
     },
     {
       year: 2025,
