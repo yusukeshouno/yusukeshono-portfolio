@@ -458,17 +458,18 @@ export default {
   juries: [
     {
       year: 2026,
+      period: "2024–26",
+      title: { en: "The Lumen Prize", ja: "The Lumen Prize" },
+      org: { en: "The Lumen Prize (London)", ja: "The Lumen Prize（ロンドン）" },
+      kind: { en: "International Selectors Committee", ja: "国際選考委員" },
+      url: "https://x.com/lumenprize/status/1897293522828685769",
+    },
+    {
+      year: 2026,
       title: { en: "Domestic Creator Creation Support Program (FY2026)", ja: "国内クリエイター創作支援プログラム（令和8年度）" },
       org: { en: "Agency for Cultural Affairs — Media Arts Creator Development Support Project", ja: "文化庁メディア芸術クリエイター育成支援事業" },
       kind: { en: "Advisor", ja: "アドバイザー" },
       url: "https://creators.j-mediaarts.bunka.go.jp/news/19914",
-    },
-    {
-      year: 2025,
-      title: { en: "The Lumen Prize 2025", ja: "The Lumen Prize 2025" },
-      org: { en: "The Lumen Prize (London)", ja: "The Lumen Prize（ロンドン）" },
-      kind: { en: "International Selectors Committee", ja: "国際選考委員" },
-      url: "https://x.com/lumenprize/status/1897293522828685769",
     },
     {
       year: 2025,

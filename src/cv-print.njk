@@ -58,7 +58,7 @@ eleventyExcludeFromCollections: true
     <ul class="p-rows">
       {%- for j in cv.juries %}
       <li class="p-row">
-        <span class="p-when">{{ j.year }}</span>
+        <span class="p-when">{{ j.period or j.year }}</span>
         <span class="p-what">
           <span class="p-title">{% if j.url %}<a href="{{ j.url }}">{{ j.title[L] }}</a>{% else %}{{ j.title[L] }}{% endif %}</span>
           <span class="p-meta">{{ j.kind[L] }} · {{ j.org[L] }}</span>

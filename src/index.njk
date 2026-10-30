@@ -149,7 +149,7 @@ title: ""
     <ul class="writings-list">
       {%- for j in cv.juries %}
       <li class="writings-list__item">
-        <span class="writings-list__year">{{ j.year }}</span>
+        <span class="writings-list__year">{{ j.period or j.year }}</span>
         <span>
           <span class="writings-list__title">
             {%- if j.url %}<a href="{{ j.url }}" rel="noopener">{% endif %}
