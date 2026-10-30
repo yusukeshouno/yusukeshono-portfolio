@@ -69,6 +69,21 @@ eleventyExcludeFromCollections: true
   </section>
 
   <section class="p-section">
+    <h2 class="p-h2">{% if L == "en" %}Teaching{% else %}教歴{% endif %}</h2>
+    <ul class="p-rows">
+      {%- for t in cv.teaching %}
+      <li class="p-row">
+        <span class="p-when">{{ t.period }}</span>
+        <span class="p-what">
+          <span class="p-title">{{ t.title[L] }}</span>
+          <span class="p-meta">{{ t.kind[L] }}</span>
+        </span>
+      </li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section class="p-section">
     <h2 class="p-h2">{% if L == "en" %}Selected Record{% else %}主な実践{% endif %}</h2>
     {%- set years = cv.entries | uniqueYears %}
     {%- for year in years %}

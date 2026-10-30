@@ -480,6 +480,19 @@ export default {
     },
   ],
 
+  teaching: [
+    {
+      period: "2015",
+      title: { en: "Ochanomizu Art School", ja: "御茶ノ水美術専門学校" },
+      kind: { en: "Part-time Lecturer (Apr–Jul 2015)", ja: "非常勤講師（2015年4月〜7月）" },
+    },
+    {
+      period: "2011–17",
+      title: { en: "Tama Art University", ja: "多摩美術大学" },
+      kind: { en: "Part-time Lecturer (Apr 2011 – Apr 2017)", ja: "非常勤講師（2011年4月〜2017年4月）" },
+    },
+  ],
+
   contact: {
     email_user: "info",
     email_domain: "yusukeshono.com",

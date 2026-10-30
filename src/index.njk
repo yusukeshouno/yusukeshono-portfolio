@@ -173,6 +173,30 @@ title: ""
 
   <section>
     <h2 class="cv-section-heading">
+      <span lang="en">Teaching</span>
+      <span lang="ja">教歴</span>
+    </h2>
+    <ul class="writings-list">
+      {%- for t in cv.teaching %}
+      <li class="writings-list__item">
+        <span class="writings-list__year">{{ t.period }}</span>
+        <span>
+          <span class="writings-list__title">
+            <span lang="en">{{ t.title.en }}</span>
+            <span lang="ja">{{ t.title.ja }}</span>
+          </span>
+          <span class="writings-list__kind">
+            <span lang="en">{{ t.kind.en }}</span>
+            <span lang="ja">{{ t.kind.ja }}</span>
+          </span>
+        </span>
+      </li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="cv-section-heading">
       <span lang="en">Contact</span>
       <span lang="ja">連絡先</span>
     </h2>
