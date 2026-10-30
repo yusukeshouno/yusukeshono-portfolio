@@ -3,7 +3,7 @@ export default {
     name: { en: "Yusuke Shono", ja: "庄野祐輔" },
     title: { en: "Editor & Curator", ja: "編集者・キュレーター" },
     location: { en: "Tokyo", ja: "東京" },
-    updated: "2026-05-26",
+    updated: "2026-10-30",
   },
 
   profile: {
@@ -401,6 +401,30 @@ export default {
       title: { en: "CryptoArt Pre-History", ja: "クリプトアート前史" },
       venue: "THE NEW CREATOR ECONOMY (BNN)",
       kind: { en: "Author", ja: "執筆" },
+    },
+  ],
+
+  juries: [
+    {
+      year: 2026,
+      title: { en: "Domestic Creator Creation Support Program (FY2026)", ja: "国内クリエイター創作支援プログラム（令和8年度）" },
+      org: { en: "Agency for Cultural Affairs — Media Arts Creator Development Support Project", ja: "文化庁メディア芸術クリエイター育成支援事業" },
+      kind: { en: "Advisor", ja: "アドバイザー" },
+      url: "https://creators.j-mediaarts.bunka.go.jp/news/19914",
+    },
+    {
+      year: 2026,
+      title: { en: "CREATOR GRANT", ja: "CREATOR GRANT" },
+      org: { en: "100 Japanese Motion Graphic Creators (BNN)", ja: "映像作家100人（BNN）" },
+      kind: { en: "Juror (with NIINOMI and Daisuke Tanaka)", ja: "審査員（NIINOMI、田中大裕と共に）" },
+      url: "https://eizo100.jp/en/creator-grant-result",
+    },
+    {
+      year: 2025,
+      title: { en: "Domestic Creator Creation Support Program (FY2025)", ja: "国内クリエイター創作支援プログラム（令和7年度）" },
+      org: { en: "Agency for Cultural Affairs — Media Arts Creator Development Support Project", ja: "文化庁メディア芸術クリエイター育成支援事業" },
+      kind: { en: "Advisor", ja: "アドバイザー" },
+      url: "https://creators.j-mediaarts.bunka.go.jp/news/17928",
     },
   ],
 

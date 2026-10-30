@@ -140,6 +140,36 @@ title: ""
 
   <section>
     <h2 class="cv-section-heading">
+      <span lang="en">Juries &amp; Advisory</span>
+      <span lang="ja">審査・アドバイザー</span>
+    </h2>
+    <ul class="writings-list">
+      {%- for j in cv.juries %}
+      <li class="writings-list__item">
+        <span class="writings-list__year">{{ j.year }}</span>
+        <span>
+          <span class="writings-list__title">
+            {%- if j.url %}<a href="{{ j.url }}" rel="noopener">{% endif %}
+            <span lang="en">{{ j.title.en }}</span>
+            <span lang="ja">{{ j.title.ja }}</span>
+            {%- if j.url %}</a>{% endif %}
+          </span>
+          <span class="writings-list__venue">
+            <span lang="en"><em>{{ j.org.en }}</em></span>
+            <span lang="ja">{{ j.org.ja }}</span>
+          </span>
+          <span class="writings-list__kind">
+            <span lang="en">{{ j.kind.en }}</span>
+            <span lang="ja">{{ j.kind.ja }}</span>
+          </span>
+        </span>
+      </li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="cv-section-heading">
       <span lang="en">Contact</span>
       <span lang="ja">連絡先</span>
     </h2>
